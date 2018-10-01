@@ -35,7 +35,7 @@ class AuthsController extends Controller {
 			'nik' => 'required|string|max:255|unique:tweb_penduduk_mandiri',
 			'pin' => 'required|string|min:6',
     	]);
-		$id_pend = \App\Models\Penduduk::select(['id'])->whereNik($request->get('nik'))->first();
+		$id_pend = \App\Models\Warga::select(['id'])->whereNik($request->get('nik'))->first();
 		if(!$id_pend){
 			$message = 'Nik tidak ditemukan';
 			return response()->json(compact('message'));
